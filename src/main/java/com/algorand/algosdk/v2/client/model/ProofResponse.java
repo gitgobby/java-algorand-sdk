@@ -12,7 +12,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ProofResponse extends PathResponse {
 
     /**
-     * The type of hash function used to create the proof
+     * The type of hash function used to create the proof, must be one of:
+     *   sumhash
+     *   sha512_256
      */
     @JsonProperty("hashtype")
     public Enums.Hashtype hashtype;
@@ -49,6 +51,13 @@ public class ProofResponse extends PathResponse {
     }
     public byte[] stibhash;
 
+    /**
+     * Represents the depth of the tree that is being proven, i.e. the number of edges
+     * from a leaf to the root.
+     */
+    @JsonProperty("treedepth")
+    public Long treedepth;
+
     @Override
     public boolean equals(Object o) {
 
@@ -60,6 +69,7 @@ public class ProofResponse extends PathResponse {
         if (!Objects.deepEquals(this.idx, other.idx)) return false;
         if (!Objects.deepEquals(this.proof, other.proof)) return false;
         if (!Objects.deepEquals(this.stibhash, other.stibhash)) return false;
+        if (!Objects.deepEquals(this.treedepth, other.treedepth)) return false;
 
         return true;
     }

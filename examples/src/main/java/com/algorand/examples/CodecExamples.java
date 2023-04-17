@@ -24,7 +24,7 @@ public class CodecExamples {
         Account acct = accts.get(0);
 
         // example: CODEC_ADDRESS
-        String addrAsStr = "4H5UNRBJ2Q6JENAXQ6HNTGKLKINP4J4VTQBEPK5F3I6RDICMZBPGNH6KD4";
+        String addrAsStr = "0x0000000000000000000000000000000";
         // Instantiate a new Address object with string
         Address addr = new Address(addrAsStr);
         // Or with the bytes
